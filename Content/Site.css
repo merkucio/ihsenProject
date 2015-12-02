@@ -57,6 +57,10 @@ div .positionf{
 
 #lienNet{float:inherit; text-align: center; color: crimson; font-family: fantas}
 
+.row{
+    margin-left: 25px;
+    margin-top: 25px;
+}
 
 
 
