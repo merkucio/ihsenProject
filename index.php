@@ -18,8 +18,10 @@ require('/DBConfig/DBConnection.php');
 <?php
 echo"<label class=\"row\">hello world</label>";
 ?>
-
-
+    <br/>
+<?php
+echo"<label class=\"row\">Ihsen Test</label>";
+?>
 
 
 </body>
