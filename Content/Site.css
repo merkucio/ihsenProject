@@ -1,12 +1,12 @@
 ﻿
-/*Travail par Ihsen Hachani & Abedelilah Khaouch Section: A IFT1147 25/10/2015 */
+/*Travail par Ihsen Hachani  Section: A IFT1147 25/10/2015 */
 
 /* Fichier CSS */
 
 
 
 body {
-background-image: url("../images/fondepage.jpg");
+background-image: url("img/fondepage.jpg");
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
@@ -33,7 +33,7 @@ div .positionf{
 
 .changer{font-family:fantasy; color:mediumvioletred; font-size: 14px; text-align: left; margin-left: 10%;}
 
-.envoieEnreg{ text-align: right; float: right; width:  auto; margin-bottom: 10%; margin-right: 10%;}
+.envoieEnreg{ text-align:right; float: right; width:  auto; margin-bottom: 10%; margin-right: 10%;}
 
 .envoie{margin-left: 40%; margin-right: 60%; width: auto;}
 
