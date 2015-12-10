@@ -58,7 +58,7 @@ $(document).ready(function(){
                 },
                 function(data){
                     if(data == false){
-                        alert("Essayer de nouveau");
+                        alert("You need to choose another username");
                     }else{                            
                         $('.mainContent').remove();
                         $('.masterContent').append('<div class="mainContent container-fluid"></div>');
@@ -92,6 +92,32 @@ $(document).ready(function(){
         $('.mainContent').html('');
         $('.mainContent').load("/ihsen/trunk/Views/ucListingMovies.php"); 
     });
+
+    $("#dialog").dialog({ autoOpen: false });
+    $(document).on('click', '.preview',function () {
+        /*$
+                $('#dialog').html(data).dialog({
+                    width: 200,
+                    height: 200,
+                    modal: false,
+                    draggable: true,
+                    buttons: {
+                        "Confirm": function() {
+                           // $.post("/Bot/OnMoveToClick", { BankId: '2525' }, function(data) {});
+                            //$('#BankDetails').html(data);
+                            //     alert(data);
+                            // });
+                            $(this).dialog("close");
+                        },
+                        "Cancel": function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                }).dialog('open');
+            });
+*/
+        });
+
 
 
 

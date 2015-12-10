@@ -14,12 +14,6 @@ switch($action){
         	break;
 }
 
-class movie {
-    public $name;
-    public $trailer;
-    public $date;
-
-}
 
 public function ListFilms($pdo){
 	$list = $PDO->query("SELECT * FROM movie");

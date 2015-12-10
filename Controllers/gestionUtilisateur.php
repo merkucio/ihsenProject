@@ -59,6 +59,10 @@
 	function ajouterUtilisateur($PDO){
 
 		//todo : Check if the username is unique
+		$request = $PDO->prepare("SELECT COUNT(*) FROM user Where username=:uname");
+		$result = $request->execute(array("uname"=>$_POST['username']));
+		if($result) return false;
+
 	    $req = $PDO->prepare("INSERT INTO user(firstname,lastname,username,password,addresse,cellulaire,email,creationdate) VALUES (:firstname, :lastname, :username, :password, :addresse, :cellulaire, :email, :creationdate)");
 
 		$postData = array(
@@ -69,7 +73,7 @@
             "addresse" => $_POST['address'],
             "email" => $_POST['email'],
             "cellulaire" => $_POST['cellphone'],
-            "creationdate" => date("Y-m-d H:i:s")
+            "creationdate" => date("Y-m-d")
             );
 
 	    $req->execute($postData);
@@ -80,7 +84,6 @@
             $role->execute(array('iduser' => $insertedId, 'idrole' => 2));
             return true;
         }
-        return false;
 	}
 
 	function Deconnexion(){

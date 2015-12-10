@@ -9,6 +9,7 @@
 		<meta charset="utf-8">
 		    <title>Filmotheque</title>
 		<script type="text/javascript" src="Scripts/jquery.js"></script>
+		<script type="text/javascript" src="Scripts/jquery-ui.js"></script>
 		<script type="text/javascript" src="Content/bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="Scripts/javaScript.js"></script>
         <script type="text/javascript" src="Scripts/Application.js"></script>
