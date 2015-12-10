@@ -1,59 +1,97 @@
 $(document).ready(function(){
    
-    $('.mainContent').remove();
-    $('.masterContent').append('<div class="mainContent container-fluid"></div>');
-    $('.mainContent').html('');
-    $('.mainContent').load("/projetihsen/trunk/ucLoginUser.html"); 
+    if($('#loggedin').val() == null){
+        $('.mainContent').remove();
+        $('.masterContent').append('<div class="mainContent container-fluid"></div>');
+        $('.mainContent').load("/Ihsen/trunk/Views/ucLoginUser.html"); 
+    }else{
+        $('#navBar').html('');                    
+        $('#navBar').load("/ihsen/trunk/Views/ucHeader.php");
+        $('.mainContent').remove();
+        $('.masterContent').append('<div class="mainContent container-fluid"></div>');
+        $('.mainContent').load("/Ihsen/trunk/Views/UserIndex.php"); 
+    }  
 
-
- // $('.mainContent').remove();
-   //     $('.masterContent').append('<div class="mainContent container-fluid"></div>');
-
-    $(".btnLogin").click(function(e){
+    $(document).on("click", ".btnLogin", function(e){
         e.preventDefault();
-        alert(e);
-        $.post('/projetihsen/trunk/Controllers/loginUser.php', 
+        if(! $('.loginform').valid()) return false;
+        $.post('/ihsen/trunk/Controllers/gestionUtilisateur.php', 
             {
+                action : 'login',
                 login : $("#username").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
                 password : $("#password").val()
             },
             function(data){
-                $(".mainContent").html(data);        
-        
+                if(data==false){
+                    $('.mainContent').html('');
+                    $('.mainContent').load("/ihsen/trunk/Views/ucLoginUser.html"); 
+                    alert("Informations incorrectes. Verifier votre nom d'utilisateur et/ou votre mot de passe !!!");
+                }else{
+                    $('#navBar').html('');                    
+                    $('#navBar').load("/ihsen/trunk/Views/ucHeader.php");
+                    $('.mainContent').html(data);
+                    //location.reload();
+                }
             });
     });
 
-    $('.registeruser').click(function(e){        
-        e.preventDefault();
+    $(document).on('click', '.btnRegister', function(){
         $('.mainContent').html('');
-        $('.mainContent').load("/projetihsen/trunk/ucRegisterUser.html");    
-    });
+        $('.mainContent').load("/Ihsen/trunk/Views/ucRegisterUser.html");    
+    });    
 
-    $("#register").click(function(e){
+    $(document).on('click', '.register', function(e){
         e.preventDefault();
-        if($('.passwordConfirm').val() == $('.password').val()){            
-            $.post('/Controllers/registerUser.php', 
+        if(! $('.form').valid()) return false;
+        
+        if( ($('.passwordConfirm').val() == $('.password').val())){             
+            $.post('/Ihsen/trunk/Controllers/gestionUtilisateur.php', 
                 {
+                    action : "register",
                     firstname : $('.firstname').val(),  
                     lastname : $('.lastname').val(),
                     password : $('.password').val(),
-                    username : $('.username').val(),  
+                    username : $('.login').val(),  
                     email : $('.email').val(),
                     address : $('.address').val() == null ? null: $('.address').val(), 
                     cellphone : $('.cellphone').val()
                 },
                 function(data){
-                //todo: show registration success
-
+                    if(data == false){
+                        alert("Essayer de nouveau");
+                    }else{                            
+                        $('.mainContent').remove();
+                        $('.masterContent').append('<div class="mainContent container-fluid"></div>');
+                        $('.mainContent').load("/Ihsen/trunk/Views/ucLoginUser.html"); 
+                    }                    
                 });
         }else{
             alert('Mot de passe non identiques !!!')
         }
     });
 
+    $(document).on('click', '.logoff', function(){
+        $.post('/Ihsen/trunk/Controllers/gestionUtilisateur.php', 
+            {
+                action : "logoff"                   
+            },
+            function(){ 
+                $('#navBar').html('');
+                $('.mainContent').remove();
+                $('.masterContent').append('<div class="mainContent container-fluid"></div>');
+                $('.mainContent').load("/Ihsen/trunk/Views/ucLoginUser.html");               
+            });       
+    });
 
+    $(document).on('click', '.userprofile', function(){
+        $('.mainContent').html('');
+        $('.mainContent').load("/ihsen/trunk/Views/ucUserProfile.html"); 
+    });
 
-
+    $(document).on('click', '.listmovie', function(){
+        $('.mainContent').html('');
+        $('.mainContent').load("/ihsen/trunk/Views/ucListingMovies.php"); 
+    });
 
 
 

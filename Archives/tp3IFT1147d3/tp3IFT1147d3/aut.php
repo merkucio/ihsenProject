@@ -1,9 +1,15 @@
 <?php
-require('/DBConfig/DBConnection.php');
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=locfilm;charset=utf8', 'root', '');
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
 
-    $username=$_POST['login'];
-    $password=$_POST['password'];
-    $st = $bdd->query("SELECT  * FROM user WHERE username='".$username."' AND password='".$password."' ");
+    
+    $st = $bdd->query("SELECT * FROM user WHERE username='".$_POST["hsan"]."' AND password='".$_POST["miboune"]."' ");
     //var_dump($st);die();
     $st->setFetchMode(PDO::FETCH_OBJ);
     $sts = $st->fetch();
@@ -15,12 +21,11 @@ require('/DBConfig/DBConnection.php');
        //var_dump($rows);die();
          if ($row != null)
             {
-                  echo 'Succes admin';
-                  //header("Location:admin.html");
+                  echo 'Succes admin'//header("Location:admin.html");
             }else{
-                      echo 'Succes user';//header("Location:user.php");
+                      echo 'Succes user'//header("Location:user.php");
 
-                  }
+            }
         
      }
     else

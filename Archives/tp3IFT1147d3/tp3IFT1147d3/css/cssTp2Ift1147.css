@@ -1,0 +1,64 @@
+
+/*Travail par Ihsen Hachani & Abedelilah Khaouch Section: A IFT1147 25/10/2015 */
+
+/* Fichier CSS */
+
+
+
+body {
+background-image: url("../images/fondepage.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+}
+
+
+div .positionEnreg {
+    position: relative; 
+    top: 100px;
+    right: 200px;
+    width: 800px;
+    height: 50%;
+    border: double 10px #FF0000;
+            
+}
+
+div .positionf{
+    position: absolute; top: 50%;
+    right: 50%;
+    width: 50%;
+    height: 50%;}
+
+.decolorer:hover { background-color:#a5f; width : 150px; text-align: center; width: 150px; border-bottom-style: groove}
+
+.changer{font-family:fantasy; color:mediumvioletred; font-size: 14px; text-align: left; margin-left: 10%;}
+
+.envoieEnreg{ text-align: right; float: right; width:  auto; margin-bottom: 10%; margin-right: 10%;}
+
+.envoie{margin-left: 40%; margin-right: 60%; width: auto;}
+
+.fermer{float:right;}
+
+.formclass { border: groove 5px ; background-color:darkblue;  width: 500px;}
+
+.modifier { border: groove 5px ; background-color:darkblue;  width: 500px;}
+
+.droite { float: right; width : 150px; margin-right: 10%;}
+
+.centrer{visibility:hidden;position:fixed;top:100%;left:400%;}
+
+.imageHtml {float:left; margin-left: 30;}
+
+.imageCss {float: right; margin-right: 30;}
+
+.auteurs{color: darkslateblue; background-color: antiquewhite; text-align: center;}
+
+.colorer{color:darksalmon}
+
+#lienNet{float:inherit; text-align: center; color: crimson; font-family: fantas}
+
+
+
+
+
+
