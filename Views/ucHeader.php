@@ -10,7 +10,7 @@
 						<li><a href="#"  class="listmovie" title=" ??? ">Liste des films</a></li>
 						<li><a href="#" class="userprofile" title=" ??? ">Mon profile</a></li>
 						<li><a href="#" title=" ??? ">Mes locations</a></li>
-						<li><a href="/">Hello <?php echo $_SESSION['uname'] ?> ! </a><li>
+						<li><a href="#" class="userprofile" >Hello <?php echo $_SESSION['uname'] ?> ! </a><li>
 					    <li><a class="logoff" href="#">Deconnexion</a></li>
 					</ul>		
 				</div>
@@ -18,11 +18,12 @@
 				<div class="header-inner clearfix">
 					<a href="#" class="brand"></a>
 					<ul class="mainNav">
-						<li><a href="#" title=" ??? ">Ajouter un film</a></li>
-						<li><a href="#" title=" ??? ">Editer un film</a></li>
-						<li><a href="#" title=" ??? ">Supprimer un film</a></li>
-						<li><a href="/">Hello <?php echo $$_SESSION['uname'] ?> ! </a></li>
-					    <li><a id="logoff" href="#">Deconnexion</a></li>
+						<li><a href="#" title=" ??? " class="btnHome">Home</a></li>
+						<li><a href="#" title=" ??? " class="btnaddmovie">Ajouter un film</a></li>
+						<li><a href="#" title=" ??? " class="btneditmovie">Editer un film</a></li>
+						<li><a href="#" title=" ??? " class="btndeletemovie">Supprimer un film</a></li>
+						<li><a href="#" class="userprofile" >Hello <?php echo $_SESSION['uname'] ?> ! </a></li>
+					    <li><a class="logoff" href="#">Deconnexion</a></li>
 					</ul>
 				</div>
 	<?php	}

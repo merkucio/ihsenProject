@@ -3,6 +3,7 @@
 	if(isset($_SESSION['Auth']) && $_SESSION['Auth']==true)
 	{ ?>		
 		<input type="hidden" id="loggedin" value=" <?php echo $_SESSION['Auth'] ?>"/>
+		<input type="hidden" id="role" value=" <?php echo $_SESSION['roleid'] ?>"/>
  <?php } ?>
 <html lang="fr-ca">
 	<head>

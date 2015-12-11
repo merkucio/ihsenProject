@@ -9,7 +9,12 @@ $(document).ready(function(){
         $('#navBar').load("/ihsen/trunk/Views/ucHeader.php");
         $('.mainContent').remove();
         $('.masterContent').append('<div class="mainContent container-fluid"></div>');
-        $('.mainContent').load("/Ihsen/trunk/Views/UserIndex.php"); 
+        if($('#role').val() == "1"){
+            $('.mainContent').load("/Ihsen/trunk/Views/AdminIndex.php"); 
+        }
+        if($('#role').val() == "2"){
+             $('.mainContent').load("/Ihsen/trunk/Views/UserIndex.php"); 
+        }       
     }  
 
     $(document).on("click", ".btnLogin", function(e){
@@ -115,12 +120,12 @@ $(document).ready(function(){
                     }
                 }).dialog('open');
             });
-*/
-        });
+        */
+    });
 
     $(".cartDialog").dialog({ autoOpen: false });  
     $(document).on('click','.addCart', function(e){    
-        e.preventDefault();     
+       /* e.preventDefault();     
         $.post('/ihsen/trunk/Views/ucRentalDialog.php', {
             title : $(''),
             
@@ -148,7 +153,28 @@ $(document).ready(function(){
                             }
                         }
                     }).dialog('open');
-                });
+        */
+    });
+
+    $(document).on('click','.btnHome', function(e){
+        $('.mainContent').html('');
+        $('.mainContent').load("/Ihsen/trunk/Views/AdminIndex.php"); 
+    });
+
+    $(document).on('click','.btnaddmovie', function(e){
+        $('.mainContent').html('');
+        $('.mainContent').load("/Ihsen/trunk/Views/ucAddMovie.php"); 
+    });
+    
+    $(document).on('click','.btneditmovie', function(e){
+        $('.mainContent').html('');
+        $('.mainContent').load("/Ihsen/trunk/Views/ucEditMovie.html"); 
+    });
+
+    $(document).on('click','.btndeletemovie', function(e){
+        $('.mainContent').html('');
+        $('.mainContent').load("/Ihsen/trunk/Views/ucDeleteMovie.html"); 
+    });
 
 
 });
