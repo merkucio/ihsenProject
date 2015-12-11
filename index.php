@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="Scripts/jquery.js"></script>
 		<script type="text/javascript" src="Scripts/jquery-ui.js"></script>
 		<script type="text/javascript" src="Content/bootstrap/js/bootstrap.js"></script>
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script type="text/javascript" src="Scripts/javaScript.js"></script>
         <script type="text/javascript" src="Scripts/Application.js"></script>
         <script type="text/javascript" src="Scripts/jquery.validate.js"></script>

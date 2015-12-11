@@ -16,7 +16,7 @@
 				foreach ($films as $film) { ?>
 					<div class="itemUnit">
 						<div class="desc">
-							<h3 class="title"> <?php echo $film->title; ?></h3>
+							<h3 id="<?php echo $film->id; ?>" class="title"> <?php echo $film->title; ?></h3>
 							<h3 class="director"><?php echo $film->director; ?></h3>
 						</div>
 						<hr/>
@@ -38,5 +38,4 @@
 			?>
 			</div>
 	</div>
-
-	<div title="dialog" id="dialog"></div>
+	<div title="Louer le film" class="cartDialog"></div>

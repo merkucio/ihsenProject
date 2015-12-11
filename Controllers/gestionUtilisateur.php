@@ -18,6 +18,9 @@
     	case "retirer" :
 	    	retirer();
     		break;
+    	case "addtocart" :
+	    	AjouterPanier($PDO);
+    		break;
 	}
 
            // $_SESSION['Auth'] = $insertedId;
@@ -93,7 +96,7 @@
 		return true;
 	}
 
-	function getUtilisateur(){
+	function AjouterPanier($pdo){
 
 	}
 

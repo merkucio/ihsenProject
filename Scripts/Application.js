@@ -118,14 +118,37 @@ $(document).ready(function(){
 */
         });
 
+    $(".cartDialog").dialog({ autoOpen: false });  
+    $(document).on('click','.addCart', function(e){    
+        e.preventDefault();     
+        $.post('/ihsen/trunk/Views/ucRentalDialog.php', {
+            title : $(''),
+            
+        }, function(){});  
+         $('.cartDialog').dialog({
+                        width: 500,
+                        height: 500,
+                        modal: true,
+                        draggable: true,
+                        open: function(){
 
-
-
-
-
-
-
-
+                            $(this).load("/ihsen/trunk/Views/ucRentalDialog.php");
+                        },
+                        buttons: {
+                            "Confrimer": function () {
+                                $.post("/ihsen/trunk/gestionUtilisateur.php",
+                                {
+                                    action : 'addtocart'
+                                }).success(function(data) {
+                                    $(this).dialog("close");
+                                });
+                            },
+                            "Annuler": function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    }).dialog('open');
+                });
 
 
 });
