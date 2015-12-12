@@ -62,6 +62,8 @@ $(document).ready(function(){
                     cellphone : $('.cellphone').val()
                 },
                 function(data){
+                    if(data=="hhhhhhhhhh")
+                        alert("Username existe déjà");
                     if(data == false){
                         alert("You need to choose another username");
                     }else{                            
@@ -124,36 +126,42 @@ $(document).ready(function(){
     });
 
     $(".cartDialog").dialog({ autoOpen: false });  
-    $(document).on('click','.addCart', function(e){    
-       /* e.preventDefault();     
+    $(document).on('click','.addCart', function(e){
+        e.preventDefault();     
         $.post('/ihsen/trunk/Views/ucRentalDialog.php', {
-            title : $(''),
-            
-        }, function(){});  
-         $('.cartDialog').dialog({
+            id : $(this).next('input').first().val(),            
+        }, function(data){
+            $('.cartDialog').dialog({
                         width: 500,
                         height: 500,
                         modal: true,
                         draggable: true,
-                        open: function(){
-
-                            $(this).load("/ihsen/trunk/Views/ucRentalDialog.php");
+                        open: function(){  
+                            $(this).html(data);
                         },
                         buttons: {
-                            "Confrimer": function () {
-                                $.post("/ihsen/trunk/gestionUtilisateur.php",
+                            "Confirmer": function () {
+                                if(! $('.cartform').valid()) return false;
+                                $this = $(this);
+                                $.post("/Ihsen/trunk/Controllers/gestionUtilisateur.php",
                                 {
-                                    action : 'addtocart'
-                                }).success(function(data) {
-                                    $(this).dialog("close");
+                                    action : 'addtocart',
+                                    filmid : $('.idfilm').val(),
+                                    userid : $('.userid').val(),
+                                    paiment: $('.pmethod').val(),
+                                    card : $('.card').val(),
+                                    dateval : $('.enddate').val(),
+                                    cvv : $('.cvvcode').val()
+                                }).success(function() {
+                                    $this.dialog("close");
                                 });
                             },
                             "Annuler": function () {
-                                $(this).dialog("close");
+                                $this.dialog("close");
                             }
                         }
                     }).dialog('open');
-        */
+        });  
     });
 
     $(document).on('click','.btnHome', function(e){

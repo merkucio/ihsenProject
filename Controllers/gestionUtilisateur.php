@@ -60,8 +60,6 @@
 	}
    
 	function ajouterUtilisateur($PDO){
-
-		//todo : Check if the username is unique
 		$request = $PDO->prepare("SELECT COUNT(*) FROM user Where username=:uname");
 		$result = $request->execute(array("uname"=>$_POST['username']));
 		if($result) return false;
@@ -96,9 +94,26 @@
 		return true;
 	}
 
-	function AjouterPanier($pdo){
+	function AjouterPanier($PDO){
+	    $req = $PDO->prepare("INSERT INTO location(userid, filmid, paiement_method, date_location, montant, duree_location, numero_carte, date_carte, cvv_carte) 
+	    						VALUES (:user, :film, :method, :dloc, :montant, :duree, :numerocard, :dcarte, :cvv)");
 
-	}
+  		$postData = array(
+            "user" => $_POST['userid'] == null ? null : $_POST['userid'], 
+            "film" => $_POST['filmid']  == null ? null : $_POST['filmid'],
+            "montant" => 0,
+            "method" => $_POST['paiment'] == null ? null : $_POST['paiment'], 
+            "duree" => 0, 
+            "numerocard" => $_POST['card'] == null ? null : $_POST['card'],
+            "dcarte" => $_POST['dateval'] == null ? null : $_POST['dateval'],
+            "cvv" => $_POST['cvv'] == null ? null : $_POST['cvv'],
+            "dloc" => date("Y-m-d")
+            );
+
+	    $req->execute($postData);
+		$insertedId = $PDO->lastInsertId();
+		return true;
+    }
 
 	function getUtilisateurs(){
 

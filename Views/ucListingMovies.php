@@ -16,8 +16,8 @@
 				foreach ($films as $film) { ?>
 					<div class="itemUnit">
 						<div class="desc">
-							<h3 id="<?php echo $film->id; ?>" class="title"> <?php echo $film->title; ?></h3>
-							<h3 class="director"><?php echo $film->director; ?></h3>
+							<h3 class="title"> <?php echo $film->title; ?></h3>
+							<h3 class="director"><?php echo $film->director; ?></h3>							
 						</div>
 						<hr/>
 						<div >
@@ -29,9 +29,9 @@
 						<span class="year"><?php echo $film->year; ?></span>
 						
 						<div class="actions">
-						<input type="hidden"/>		
 							<a href="#" class="preview pill-button">Apercu</a>
 							<a href="#" class="addCart pill-button blue-button">Ajouter au panier</a>
+							<input type="hidden" id="filmid" class="filmid" value="<?php echo $film->id; ?>" />
 						</div>
 					</div>
 				<?php }
