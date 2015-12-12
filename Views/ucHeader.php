@@ -29,7 +29,7 @@
 						<li><a href="#" title=" ??? " class="btnaddmovie">Ajouter un film</a></li>
 						<li><a href="#" title=" ??? " class="btneditmovie">Editer un film</a></li>
 						<li><a href="#" title=" ??? " class="btndeletemovie">Supprimer un film</a></li>
-						<li><a href="#" class="userprofile" >Hello <?php echo $_SESSION['uname'] ?> ! </a></li>
+						<li><a href="#" class="adminprofile" >Hello <?php echo $_SESSION['uname'] ?> ! </a></li>
 					    <li><a class="logoff" href="#">Deconnexion</a></li>
 					</ul>
 				</div>

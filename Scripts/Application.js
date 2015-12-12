@@ -92,7 +92,12 @@ $(document).ready(function(){
 
     $(document).on('click', '.userprofile', function(){
         $('.mainContent').html('');
-        $('.mainContent').load("/ihsen/trunk/Views/ucUserProfile.html"); 
+        $('.mainContent').load("/ihsen/trunk/Views/userProfile.html"); 
+    });
+
+     $(document).on('click', '.adminprofile', function(){
+        $('.mainContent').html('');
+        $('.mainContent').load("/ihsen/trunk/Views/ucAdminProfile.html"); 
     });
 
     $(document).on('click', '.listmovie', function(){
