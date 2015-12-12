@@ -12,6 +12,9 @@
 		case "register" :
 		    ajouterUtilisateur($PDO);
 	    	break;
+	    	case "updateuser" :
+		    modifierUtilisateur($PDO);
+	    	break;
 	    case "logoff" :
 	    	Deconnexion();
     		break;
@@ -85,6 +88,38 @@
             $role->execute(array('iduser' => $insertedId, 'idrole' => 2));
             return true;
         }
+	}
+
+	function modifierUtilisateur($PDO){
+		$request = $PDO->query("SELECT * FROM user Where username='".$_POST['username']."'");
+		$request->setFetchMode(PDO::FETCH_OBJ);
+		$count = $request->rowCount();
+		$request = $request->fetch();
+		
+		if($request->username == $_POST['username'] || $count > 0) return false;
+
+		session_start();
+
+	    $req = $PDO->prepare("UPDATE user SET firstname=:firstname,lastname=:lastname,username=:username,addresse=:addresse,cellulaire=:cellulaire,email=:email
+	    	                  WHERE id=:id");
+
+		$postedData = array(
+            "firstname" => $_POST['firstname'], 
+            "lastname" => $_POST['lastname'],
+            "username" => $_POST['username'],
+            "addresse" => $_POST['address'],
+            "email" => $_POST['email'],
+            "cellulaire" => $_POST['cellphone'],
+            "id"=> $_SESSION['userid']
+            );
+
+	    $req->execute($postedData);
+		
+    	$_SESSION['lname'] = $_POST['lastname'];
+    	$_SESSION['fname'] = $_POST['firstname'];
+    	$_SESSION['uname'] = $_POST['username'];
+
+		return true;        
 	}
 
 	function Deconnexion(){

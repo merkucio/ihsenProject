@@ -77,6 +77,33 @@ $(document).ready(function(){
         }
     });
 
+$(document).on('click', '.edituser', function(e){
+        e.preventDefault();
+        if(! $('.userform').valid()) return false;        
+                     
+            $.post('/Ihsen/trunk/Controllers/gestionUtilisateur.php', 
+                {
+                    action : "updateuser",
+                    firstname : $('.firstname').val(),  
+                    lastname : $('.lastname').val(),
+                    username : $('.login').val(),  
+                    email : $('.email').val(),
+                    address : $('.address').val() == null ? null: $('.address').val(), 
+                    cellphone : $('.cellphone').val()
+                },
+                function(data){
+                    if(data == false){
+                        alert("You need to choose another username");
+                    }else{
+                        alert("Changement fait avec succes");
+                        $('.mainContent').remove();
+                        $('.masterContent').append('<div class="mainContent container-fluid"></div>');
+                        $('.mainContent').load("/Ihsen/trunk/Views/ucListingMovies.php"); 
+                    }                    
+                });
+        
+    });
+
     $(document).on('click', '.logoff', function(){
         $.post('/Ihsen/trunk/Controllers/gestionUtilisateur.php', 
             {
@@ -92,12 +119,12 @@ $(document).ready(function(){
 
     $(document).on('click', '.userprofile', function(){
         $('.mainContent').html('');
-        $('.mainContent').load("/ihsen/trunk/Views/userProfile.html"); 
+        $('.mainContent').load("/ihsen/trunk/Views/userprofile.php"); 
     });
 
      $(document).on('click', '.adminprofile', function(){
         $('.mainContent').html('');
-        $('.mainContent').load("/ihsen/trunk/Views/ucAdminProfile.html"); 
+        $('.mainContent').load("/ihsen/trunk/Views/ucAdminProfile.php"); 
     });
 
     $(document).on('click', '.listmovie', function(){

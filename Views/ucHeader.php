@@ -4,8 +4,6 @@
 	require('../DBConfig/DBConnection.php');
 
 	$result = $PDO->query("SELECT * FROM location Where userid=".$_SESSION['userid']);
-	//$result->setFetchMode(PDO::FETCH_OBJ);
-    //$location = $result->fetch();
 	$location = $result->rowCount();
 	if(isset($_SESSION['Auth']) && $_SESSION['Auth']==true)
 	{  
