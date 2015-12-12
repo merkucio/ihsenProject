@@ -30,6 +30,7 @@
 						
 						<div class="actions">
 							<a href="#" class="preview pill-button">Apercu</a>
+							<input type="hidden" id="filmtrailer" class="filmtrailer" value="<?php echo $film->trailer; ?>" />
 							<a href="#" class="addCart pill-button blue-button">Ajouter au panier</a>
 							<input type="hidden" id="filmid" class="filmid" value="<?php echo $film->id; ?>" />
 						</div>
@@ -39,3 +40,4 @@
 			</div>
 	</div>
 	<div title="Louer le film" class="cartDialog"></div>
+	<div class="previewDialog"></div>

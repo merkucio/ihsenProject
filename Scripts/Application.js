@@ -77,7 +77,7 @@ $(document).ready(function(){
         }
     });
 
-$(document).on('click', '.edituser', function(e){
+    $(document).on('click', '.edituser', function(e){
         e.preventDefault();
         if(! $('.userform').valid()) return false;        
                      
@@ -100,8 +100,7 @@ $(document).on('click', '.edituser', function(e){
                         $('.masterContent').append('<div class="mainContent container-fluid"></div>');
                         $('.mainContent').load("/Ihsen/trunk/Views/ucListingMovies.php"); 
                     }                    
-                });
-        
+                });    
     });
 
     $(document).on('click', '.logoff', function(){
@@ -122,7 +121,7 @@ $(document).on('click', '.edituser', function(e){
         $('.mainContent').load("/ihsen/trunk/Views/userprofile.php"); 
     });
 
-     $(document).on('click', '.adminprofile', function(){
+    $(document).on('click', '.adminprofile', function(){
         $('.mainContent').html('');
         $('.mainContent').load("/ihsen/trunk/Views/ucAdminProfile.php"); 
     });
@@ -132,29 +131,28 @@ $(document).on('click', '.edituser', function(e){
         $('.mainContent').load("/ihsen/trunk/Views/ucListingMovies.php"); 
     });
 
-    $("#dialog").dialog({ autoOpen: false });
-    $(document).on('click', '.preview',function () {
-        /*$
-                $('#dialog').html(data).dialog({
-                    width: 200,
-                    height: 200,
-                    modal: false,
-                    draggable: true,
-                    buttons: {
-                        "Confirm": function() {
-                           // $.post("/Bot/OnMoveToClick", { BankId: '2525' }, function(data) {});
-                            //$('#BankDetails').html(data);
-                            //     alert(data);
-                            // });
-                            $(this).dialog("close");
-                        },
-                        "Cancel": function() {
-                            $(this).dialog("close");
-                        }
+    $(".previewDialog").dialog({ autoOpen: false });
+    $(document).on('click', '.preview', function(e) 
+    {
+        e.preventDefault();     
+        $.post('/ihsen/trunk/Views/previewplayer.php', 
+        {
+            trailer : $(this).next('input').first().val(),            
+        }, 
+        function(data){
+                 $('.previewDialog').html(data).dialog(
+                 {
+                    width: 600,
+                    height:300,
+                    modal: true,
+                    draggable: true,                                 
+                    open: function()
+                    {
+                        $(this).html(data);                        
                     }
                 }).dialog('open');
             });
-        */
+               
     });
 
     $(".cartDialog").dialog({ autoOpen: false });  
@@ -216,5 +214,9 @@ $(document).on('click', '.edituser', function(e){
         $('.mainContent').load("/Ihsen/trunk/Views/ucDeleteMovie.html"); 
     });
 
+    $(document).on('click','.userRents', function(e){
+        $('.mainContent').html('');
+        $('.mainContent').load("/Ihsen/trunk/Views/ucUserRental.php"); 
+    });
 
 });

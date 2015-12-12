@@ -1,6 +1,6 @@
 
 <<?php 
-require('../DBConfig/DBConnection.php');
+    require('../DBConfig/DBConnection.php');
                     session_start();
                     $user = $PDO->query("SELECT * FROM user WHERE id=".$_SESSION['userid']);
                     $user->setFetchMode(PDO::FETCH_OBJ);

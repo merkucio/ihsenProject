@@ -14,8 +14,8 @@
 					<ul class="mainNav">
 						<li><a href="#"  class="listmovie" title=" ??? ">Liste des films</a></li>
 						<li><a href="#" class="userprofile" title=" ??? ">Mon profile</a></li>
-						<li><a href="#" title=" ??? ">Mes locations</a><span class="count"><?php echo $location ?></span></li>
-						<li><a href="#" class="userprofile" >Hello <?php echo $_SESSION['uname'] ?> ! </a><li>
+						<li><a href="#" class="userRents" title=" ??? ">Mes locations</a><span class="count"><?php echo $location ?></span></li>
+						<li><p>Hello <?php echo $_SESSION['uname'] ?> ! </p><li>
 					    <li><a class="logoff" href="#">Deconnexion</a></li>
 					</ul>		
 				</div>
