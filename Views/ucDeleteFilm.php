@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Choisilr le numero du film :<span class="red"> *</span></label>
                     <div class="col-md-8">
-                        <select class="movietoedit form-control" required title="Choisir le film a supprimer"style="maxWidth:200px;">
+                        <select class="movietodelete form-control" required title="Choisir le film a supprimer"style="maxWidth:200px;">
                             <?php foreach ($movies as $movie) {
                                 echo "<option id=".$movie->id." value=".$movie->id.">".$movie->id."</option>";
                             } ?>

@@ -249,13 +249,13 @@ $(document).ready(function(){
         $('.mainContent').load("/Ihsen/trunk/Views/ucDeleteFilm.php"); 
     });
 
-    $(document).on('click','.deletemovie', function(){
+    $(document).on('click','.deletemovie', function(e){
         e.preventDefault();
-        f(! $('.deleteform').valid()) return false;
+        if(! $('.deleteform').valid()) return false;
         $.post('/Ihsen/trunk/Controllers/gestionFilm.php', 
             {
                 action : "deletemovie",
-                id : $('.movietodelete').val()
+                movieid : $('.movietodelete').val()
             },
             function(data){                                            
                 $('.mainContent').remove();

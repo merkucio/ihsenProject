@@ -10,7 +10,7 @@ switch($action){
 	    enregistrerFilm();
     	break;
     case "deletemovie" :
-	    retirerFilm($PDO);
+	    supprimerFilm($PDO);
         break; 
     case "editmovie" :
 	    editerFilm($PDO);
@@ -63,8 +63,8 @@ function editerFilm($PDO){
 }
 
 function supprimerFilm($PDO){
-	$req = $PDO->prepare("DELETE FROM movie WHERE id=:id");
-	$postedData = array("id"=> $_POST['id']);
+	$req = $PDO->prepare("DELETE FROM movie WHERE id=:mid");
+	$postedData = array("mid"=> $_POST['movieid']);
     $req->execute($postedData);
     return true;   
 }
