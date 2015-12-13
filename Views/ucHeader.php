@@ -31,6 +31,7 @@
 					    <li><a class="logoff" href="#">Deconnexion</a></li>
 					</ul>
 				</div>
+				<div title="Supprimer le film" class="deleteDialog"></div>
 	<?php	}
 	 } 
 	 ?>
